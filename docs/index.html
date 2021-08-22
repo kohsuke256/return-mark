@@ -62,15 +62,11 @@
 							<p class="counter-label">問題数</p>
 							<p class="counter-sub">何問出題するか</p>
 							<div id="count-outer">
-								<nobr>
-									<span class="counter-button" id="decrement10" onClick="configCount(-10)"></span>
-									<span class="counter-button" id="decrement" onClick="configCount(-1)"></span>
-								</nobr>
-								<span class="counter-main" id="count-main"></span>
-								<nobr>
-									<span class="counter-button" id="increment" onClick="configCount(1)"></span>
-									<span class="counter-button" id="increment10" onClick="configCount(10)"></span>
-								</nobr>
+								<div class="counter-button" id="increment10" onClick="configCount(10)"></div>
+								<div class="counter-button" id="increment" onClick="configCount(1)"></div>
+								<div class="counter-main" id="count-main"></div>
+								<div class="counter-button" id="decrement" onClick="configCount(-1)"></div>
+								<div class="counter-button" id="decrement10" onClick="configCount(-10)"></div>
 							</div>
 						</li>
 					</ul>

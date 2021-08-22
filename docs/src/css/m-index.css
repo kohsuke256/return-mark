@@ -96,31 +96,34 @@ body > div {
 }
 
 #count-outer {
-  text-align: center;
 	user-select: none;
+  writing-mode: vertical-rl;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	margin: 0 auto;
 }
 
 .counter-main {
-	width: 6em;
+  writing-mode: initial;
 }
 
-#count-outer span {
-  display: inline-block;
+#count-outer div {
+  text-align: center;
 }
 
 #decrement10::before {
-	content: "＜＜";
-}
-
-#decrement::before {
-	content: "＜";
-}
-
-#increment::before {
-	content: "＞";
-}
-
-#increment10::before {
 	content: "＞＞";
 }
 
+#decrement::before {
+	content: ">";
+}
+
+#increment::before {
+	content: "<";
+}
+
+#increment10::before {
+	content: "＜＜";
+}

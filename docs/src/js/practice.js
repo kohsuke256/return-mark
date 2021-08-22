@@ -110,7 +110,6 @@ function clickChar(index) {
 			playSE('click');
 			count++;
 			sent.insert(index, sent.getCount(selectedChar));
-			selectChar(index);
 		}
 		update();
 	}
@@ -123,7 +122,10 @@ function selectChar (index) { // -1:選択解除
 	}
 	let chars = document.getElementsByClassName('char');
 	if (0 <= index && index < chars.length) {
-		chars[index].classList.add('selected')
+		chars[index].classList.add('selected');
+		document.getElementById('del').classList.add('selected');
+	} else {
+		document.getElementById('del').classList.remove('selected');
 	}
 }
 
@@ -145,11 +147,16 @@ function next() {
 	}
 }
 
-function delAll() {
-	playSE('delAll');
-	count = 0;
-	score -= 5;
-	sent.delAll();
+function del() {
+	playSE('del');
+	sent.del(selectedChar);
+	if (selectedChar == -1) {
+		count = 0;
+		score -= 5;
+	} else {
+		count--;
+		score--;
+	}
 	selectChar(-1);
 	update();
 }
@@ -174,10 +181,10 @@ function showResult() {
 	document.getElementById('level').innerHTML = ["いと易し", "易し", "並", "難し", "いと難し"][level];
 	document.getElementById('count').innerHTML = `${japaneseNumber(questionCount)}問`;
 	document.getElementById('correct').innerHTML = `${japaneseNumber(correctCount)}問`;
-	document.getElementById('rate').innerHTML = `${japaneseNumber(Math.floor(correctRate * 10))}割${`${Math.floor(correctRate * 100 % 10) == 0 ? '' : japaneseNumber(Math.floor(correctRate * 100 % 10))}分`}`;
+	document.getElementById('rate').innerHTML = `${japaneseNumber(Math.floor(correctRate * 10))}割${Math.floor(correctRate * 100 % 10) == 0 ? '' : `${japaneseNumber(Math.floor(correctRate * 100 % 10))}分`}`;
 	document.getElementById('time').innerHTML = second < 60 ? `${japaneseNumber(second)}秒` : `${japaneseNumber(Math.floor(second / 60))}分${japaneseNumber(second % 60)}秒`;
 	let result_score = Math.floor(score * 10 / second + questionCount * level * 2);
 	document.getElementById('score').innerHTML = `${japaneseNumber(result_score)}点`;
 	document.getElementById('errata').innerHTML = sentHistory.map((s, i) => `<details class="${s.isCorrect() ? 'correct' : 'incorrect'}"><summary>${japaneseNumber(i + 1)}問目</summary><div class="errata-sent">${s.getErrata()}</div></details>`).join('');
-	startUp();
+	outer.classList.remove('not-first');
 }

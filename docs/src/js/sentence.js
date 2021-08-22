@@ -67,10 +67,15 @@ class Sentence {
 			return true;
 		}
 	}
-	delAll() {
-		this.counts = [];
-		for (let _ in this.marks) {
-			this.counts.push(0);
+	del(index) {
+		if (index == -1) { // all
+			this.counts = [];
+			for (let _ in this.marks) {
+				this.counts.push(0);
+			}
+		} else {
+			this.counts = this.counts.map((c) => c >= this.counts[index] ? c - 1: c);
+			this.counts[index] = 0;
 		}
 	}
 	undo(count) {

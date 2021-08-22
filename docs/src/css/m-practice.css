@@ -72,6 +72,10 @@ body {
 	content: "全て消す";
 }
 
+#del.selected:hover::before {
+	content: "一つ消す";
+}
+
 #del {
 	color: #ff3333;
 	background-color: #ff9999;

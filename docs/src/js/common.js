@@ -51,7 +51,7 @@ function loadSE() {
 	return {
 		'click': new Audio("se/click.wav"),
 		'select': new Audio("se/select.wav"),
-		'delAll': new Audio("se/delAll.wav"),
+		'del': new Audio("se/del.wav"),
 		'undo': new Audio("se/undo.wav"),
 		'correctAnswer': new Audio("se/correctAnswer.wav"),
 		'incorrectAnswer': new Audio("se/incorrectAnswer.wav")

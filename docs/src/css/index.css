@@ -96,16 +96,20 @@ body > div {
 }
 
 #count-outer {
-  text-align: center;
 	user-select: none;
+  writing-mode: initial;
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	margin: auto 0;
 }
 
 .counter-main {
-	height: 6em;
+  writing-mode: vertical-rl;
 }
 
-#count-outer span {
-  display: inline-block;
+#count-outer div {
+  text-align: center;
 }
 
 #decrement10::before {

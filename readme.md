@@ -11,7 +11,7 @@
 
 ## リターンマークとは
 [第2回 学力向上アプリコンテスト](https://www.gakuryokuup.com/)のために制作~~された~~*中の*、漢文の返り点に特化した練習用サイトです。  
-[Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages) を利用し[公開](https://kohsuke256.github.io/return-mark/)されて~~おり、手軽に利用することができ~~*ますが、未完成です*。
+[Github Pages](https://kohsuke256.github.io/return-mark/)，[Firebase Hosting](https://return-mark.web.app/) を利用し公開されて~~おり、手軽に利用することができ~~*ますが、未完成です*。
 
 ---
 

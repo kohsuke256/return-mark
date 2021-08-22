@@ -21,7 +21,7 @@
 				<a href="./index.html">ホームページ</a>でお好みの設定を選び、<nobr>「始める」</nobr>ボタンをクリックすると始まります。
 			</p>
 			<p>
-				正しい順番で正方形をクリックしていきましょう。順番は、一般的な<a href="./learn/index.html">返り点の読み方</a>どおりです。
+				正しい順番で文字（正方形）をクリックしていきましょう。順番は、一般的な<a href="./learn/index.html">返り点の読み方</a>どおりです。
 			</p>
 			<p>
 				文の最後まで読み終えたら、<nobr>次（の問題）</nobr>ボタンをクリックしましょう。次の問題に移ります。
@@ -30,6 +30,31 @@
 				二問目以降も同様の手順で繰り返していき、既定の問題数を終えると結果発表画面に移ります。
 			</p>
 			<div class="indent">
+				<h3 class="heading" id="operation-description">操作説明</h3>
+				<p>
+					基本は正しい順番で文字をクリックしていき、終わったら次の問題への繰り返しです。
+				</p>
+				<div class="indent">
+					<h4 class="heading" id="when-undo">押し間違えたときは</h4>
+					<p>
+						<a href="undo-heading">「一つ戻る」ボタン</a>を押しましょう。
+					</p>
+					<h4 class="heading" id="when-one-del">途中で余分な選択をしたときは</h4>
+					<p>
+						間違えたところをクリックして選択し、<a href="one-del-heading">「一つ消す」ボタン</a>を押しましょう。
+					</p>
+					<h4 class="heading" id="when-all-del">全部やり直したいときは</h4>
+					<p>
+						<a href="all-del-heading">「全て消す」ボタン</a>を押しましょう。
+					</p>
+					<div class="annotation">戻せないので注意</div>
+					<h4 class="heading" id="when-cant-solve">わからない問題が出たときは</h4>
+					<p>
+						<a href="next-heading">「次の問題」ボタン</a>を押し、後で答えを見るか、<a href="./learn/index.html">学習</a>ページや他サイトなどで読み方を学習しましょう。
+						<span class="weak">次出たときにできれば問題なし。<span class="strike">知らんけど。</span></span>
+					</p>
+				</div>
+			</div>
 			<h2 class="heading" id="screen-view">画面の見方</h2>
 				<p>
 					見出しをクリックすると、対応する箇所が強調表示されます。
@@ -54,6 +79,13 @@
 					</p>
 					<p>
 						微妙に失点があるのでスコアアタック時には注意。
+					</p>
+					<h4 class="heading trigger" id="one-del-heading" onClick="jump2id('question-frame', 'del')">「一つ削除」ボタン</h4>
+					<p>
+						選択中には<a href="./info/index.html#all-del-heading">「全て削除」ボタン</a>がこれに変わります。効果は選択中の文字を抜かします。
+					</p>
+					<p>
+						これも微妙に失点があるのでスコアアタック時には注意。
 					</p>
 					<h4 class="heading trigger" id="undo-heading" onClick="jump2id('question-frame', 'undo')">「一つ戻る」ボタン</h4>
 					<p>
