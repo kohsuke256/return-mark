@@ -3,7 +3,7 @@ const SEs = loadSE();
 let yetLoad = true;
 let isMobile;
 
-const STYLE_SHEETS = ["common", "index", "practice", "mark", "reading", "iframe"];
+const STYLE_SHEETS = ["common", "index", "practice", "mark", "reading", "iframe", "404"];
 const TOC_CLASS = {
 	'H1': 'toc-1',
 	'H2': 'toc-2',
