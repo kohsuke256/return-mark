@@ -17,6 +17,5 @@ h1, h2 {
 }
 
 #error-sign {
-	display: inline-block;
 	text-align: right;
 }
