@@ -13,7 +13,7 @@ h1, h2 {
 
 #error-explain {
 	display: inline-block;
-	margin: auto 0;
+	margin: 0 auto;
 }
 
 #error-sign {
