@@ -1,0 +1,113 @@
+#outer.not-first, .first, .errata-sent, .sentence-example {
+  display: flex;
+  flex-wrap: wrap;
+	align-content: center;
+}
+
+div.idiom {
+  display: flex;
+  flex-wrap: wrap;
+	align-content: center;
+}
+
+.char {
+	margin: 0 0.4rem;
+  display: flex;
+  position: relative;
+	user-select: none;
+}
+
+#errata details.incorrect .char {
+	margin: 0 0.75rem 0 1.5rem;
+}
+
+.char span {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+span.border {
+	display: flex;
+	box-sizing: border-box;
+	align-content: center;
+	justify-content: center;
+	margin-left: 0.7rem;
+	border: calc(0.05rem + 1px) #000000 solid;
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+}
+
+span.border.big-num span {
+	font-size: 0.9em;
+}
+
+.char.selected span.border {
+	border: calc(0.1rem + 1px) #339900 dotted;
+}
+
+span.border span, span.border span.correction {
+	display: inline-block;
+	writing-mode: initial;
+	text-align: center;
+	font-size: 1.5rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: calc(100% - 0.7rem);
+}
+
+span.border span.correction {
+	transform: translateX(-2.5rem);
+	color: #ff3333;
+}
+
+span.mark.crushed {
+	font-size: 1.2em;
+	min-height: 0.3rem;
+	white-space: nowrap;
+	letter-spacing: -0.1em;
+	transform: scale(1, 0.5);
+	margin: -0.3rem auto -0.3rem 0;
+}
+
+span.mark {
+	font-size: 1.2em;
+	min-height: 0.3rem;
+	margin: 0.1rem auto 0.1rem 0;
+	white-space: nowrap;
+	letter-spacing: -0.1em;
+}
+
+span.mark.idiom::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: calc(0.05em + 1px);
+	height: 1.44rem;
+	background-color: #000000;
+	bottom: 2em;
+	right: 0.75em;
+}
+
+.errata-sent {
+	margin: 1em 0 0 1em;
+}
+
+.sentence-example {
+	font-size: 1rem;
+	margin-top: 2rem;
+}
+
+.sentence-example.incorrect::before {
+	content: "×";
+	color: #ff3333;
+	font-size: 2rem;
+}
+
+.sentence-example.correct::before {
+	content: "○";
+	color: #3333ff;
+	font-size: 2rem;
+}

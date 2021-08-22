@@ -1,0 +1,7 @@
+html {
+	font-size: calc((0.4vh + 18px) * 0.75);
+}
+
+.emphasize {
+	border: solid calc(0.3rem + 1px) #ff3300;
+}

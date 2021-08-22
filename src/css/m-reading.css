@@ -1,0 +1,57 @@
+body {
+	font-size: 1.5rem;
+}
+
+.indent {
+	margin-left: 1rem;
+}
+
+iframe {
+	float: right;
+	border: solid calc(0.025rem + 1px) #999999;
+	font-size: 1rem;
+	height: 45vh;
+	width: 45vw;
+	margin: 0.2rem;
+	padding: 0.2rem;
+}
+
+h1, h2, h3, h4 {
+	/* display: inline-block; */
+	margin: 0.2em 0 0.05em 0;
+}
+
+p {
+	/* text-indent: 1em; */
+	margin: 0.2em 0.2em 0.2em 1em;
+}
+
+.emphasize-frame {
+	border: double calc(0.05rem + 1px) #ff6633	;
+}
+
+.trigger {
+	text-indent: 0.25em;
+	cursor: pointer;
+}
+
+.memo::before {
+	content: "ポイント";
+	display: block;
+	transform: translateX(-1em);
+}
+
+.memo {
+	border: calc(0.05rem + 1px) #00cc33 dotted;
+	padding: 0.25em 0.25em 0.25em 1.25em;
+	margin-left: 1em;
+}
+
+.annotation::before {
+	content: "※";
+}
+
+.annotation {
+	font-size: 0.8em;
+	padding-left: 1em;
+}

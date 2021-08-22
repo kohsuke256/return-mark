@@ -1,0 +1,131 @@
+#outer.not-first, .first, .errata-sent, .sentence-example {
+	width: calc(98vw - 10rem);
+	font-size: 1.5rem;
+	column-width: 50vh;
+	column-gap: 2em;
+	column-rule: calc(0.05em + 1px) #999999 solid;
+	height: auto;
+}
+
+div.idiom {
+	writing-mode: vertical-rl;
+  display: inline-flex;
+  flex-wrap: wrap;
+	align-content: center;
+}
+
+.char {
+	writing-mode: vertical-rl;
+  display: inline-flex;
+	margin: 0 0.4em;
+  position: relative;
+	user-select: none;
+}
+
+#errata details.incorrect .char {
+	margin: 0 0.75em 0 1.5em;
+}
+
+.char span {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+span.border {
+	font-size: 0.75;
+	display: flex;
+	box-sizing: border-box;
+	align-content: center;
+	justify-content: center;
+	margin-left: 1em;
+	border: calc(0.05em + 1px) #000000 solid;
+	width: 2.25em;
+	height: 2.25em;
+	vertical-align: middle;
+}
+
+.char.selected span.border {
+	border: calc(0.1em + 1px) #339900 dotted;
+}
+
+span.border span, span.border span.correction {
+	display: inline-block;
+	writing-mode: initial;
+	text-align: center;
+	font-size: 1.5em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: calc(100% - 0.7em);
+}
+
+span.border span.correction {
+	transform: translateX(-2em);
+	color: #ff3333;
+}
+
+span.mark.crushed {
+	font-size: 1.2em;
+	min-height: 0.1.5em;
+	white-space: nowrap;
+	letter-spacing: -0.1em;
+	transform: scale(1, 0.5);
+	margin: -0.3em auto -0.3em 0;
+}
+
+span.mark {
+	font-size: 1.2em;
+	min-height: 0.1.5em;
+	margin: 0.1em auto 0.1em 0;
+	white-space: nowrap;
+	letter-spacing: -0.1em;
+}
+
+span.mark.idiom::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: calc(0.05em + 1px);
+	height: 1.2em;
+	background-color: #000000;
+	bottom: 2em;
+	right: 0.85em;
+}
+
+.errata-sent {
+	writing-mode: vertical-rl;
+	margin: 1em 0 0 1em;
+	width: 75vw;
+	overflow-x: scroll;
+	border: dotted;
+	padding: 0.5em;
+}
+
+.sentence-example {
+	display: inline-block;
+	writing-mode: vertical-rl;
+	margin: 0.25em;
+	font-size: 1rem;
+	margin: 1em 0 0 1em;
+	width: calc(45% - 2rem);
+	overflow-x: scroll;
+	border: dotted;
+	height: 60vh;
+	/* float: right; */
+}
+
+.sentence-example.incorrect::before {
+	content: "×";
+	color: #ff3333;
+	font-size: 2rem;
+	font-weight: bolder;
+}
+
+.sentence-example.correct::before {
+	content: "○";
+	color: #3333ff;
+	font-size: 2rem;
+	font-weight: bolder;
+}
+

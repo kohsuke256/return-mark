@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<script type="text/javascript">const ROOT = "/return-mark";document.write(`<base href="${location.href.slice(0, location.href.indexOf(ROOT) + ROOT.length)}/">`);</script>
+		<meta charset="utf-8">
+		<title>学習 | リターンマーク - Retern mark</title>
+		<meta name="description" content="漢文の返り点に特化した練習サイト">
+		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="stylesheet" id="common-style">
+		<link rel="stylesheet" id="reading-style">
+		<link rel="stylesheet" id="mark-style">
+		<script src="./src/js/common.js"></script>
+		<script src="./src/js/sentence.js"></script>
+	</head>
+	<body onLoad="startUp();loadExample();makeToc();loadHeader()">
+		<div id="top"></div>
+		<header class="auto-load-header"></header>
+		<div id="toc"></div>
+		<div class="indent">
+		<h2 class="heading" id="how-to-read">返り点の読み方</h2>
+			<p>
+				返り点に従った漢文の読む順番について解説します。
+			</p>
+			<p>
+				まじめな解説を求める方は、他を当たってください。このページはおまけなので、少しふざけています。
+			</p>
+			<div class="indent">
+				<h3 class="heading" id="standard">基本</h3>
+				<p>
+					漢文は何もなければ上から順に読みます。フツーの縦書きの文と一緒です。
+				</p>
+				<div class="sentence-example">
+					0, 0, 0, 0, 0
+				</div>
+				<h3 class="heading" id="re">レ点</h3>
+				<p>
+					レ点がついている（レ点の右上の文字）は一旦読まずに飛ばし、そのすぐ下の文字を読んだすぐ後に読みます。
+				</p>
+				<div class="sentence-example">
+					0, 1, 0, 1, 0
+				</div>
+				<div class="sentence-example">
+					0, 1, 1, 1, 0
+				</div>
+				<h3 class="heading" id="one-two">一二点</h3>
+				<p>
+					二点がついているは一旦読まずに飛ばし、次に一点が付いている文字を読んだすぐ後に読みます。
+				</p>
+				<div class="sentence-example">
+					0, 4, 0, 2, 0
+				</div>
+				<div class="sentence-example">
+					4, 1, 0, 2, 1, 0
+				</div>
+				<div class="sentence-example">
+					1, 4, 0, 2, 0
+				</div>
+				<div class="indent">
+					<h4 class="heading" id="one-two-three-four">応用編</h4>
+					<p>
+						三点は二点、四点は三点の後に読みます。
+					</p>
+					<div class="sentence-example">
+						6, 0, 5, 0, 4, 0, 2
+					</div>
+				</div>
+				<div class="memo">
+					一二点は、二文字以上戻るときにしか使用しません。三・四も同様です。一文字の時はレ点を使います。
+					<hr/>
+					<div class="sentence-example incorrect">
+						0, 4, 2, 0
+					</div>
+					<div class="sentence-example correct">
+						0, 1, 0, 0
+					</div>
+					<hr/>
+					<div class="sentence-example incorrect">
+						6, 0, 5, 4, 0, 2
+					</div>
+					<div class="sentence-example correct">
+						4, 0, 3, 4, 0, 2
+					</div>
+					<div class="annotation">一レ点については、<a href="./learn/index.html#goto-with-re">一レ点・上レ点など</a>で詳しく解説します。</div>
+				</div>
+				<h3 class="heading" id="up-down">上下点</h3>
+				<p>
+					一二点をまたぐように戻るときに使用します。「中」がある場合は、上中下の順番で読みます。
+				</p>
+				<div class="sentence-example">
+					10, 4, 0, 2, 7
+				</div>
+				<div class="sentence-example">
+					10, 0, 9, 4, 0, 2, 7
+				</div>
+				<h3 class="heading" id="kou-otsu">甲乙点</h3>
+				<p>
+					上下点をまたぐように戻るときに使用します。「丙」や「丁」がある場合は、甲乙丙丁の順番で読みます。
+				</p>
+				<div class="sentence-example">
+					13, 10, 4, 0, 2, 7, 11
+				</div>
+				<div class="sentence-example">
+					15, 0, 14, 0, 13, 10, 0, 9, 4, 0, 2, 7, 11
+				</div>
+				<div class="memo">
+					特別ルールとして、一二点をまたいで四文字連続で戻る場合も、甲乙点を使います。
+					<div class="sentence-example">
+						15, 0, 14, 0, 13, 4, 0, 2, 11
+					</div>
+					<div class="annotation">上中下では足りないため</div>
+				</div>
+				<h3 class="heading" id="san-sai">天地人点</h3>
+				<p>
+					甲乙点をまたぐように戻るときに使用します。順番はその名の通り天地人です。
+				</p>
+				<div class="annotation">もちろん、天地だけでも使用可能です</div>
+				<div class="sentence-example">
+					19, 0, 18, 15, 0, 14, 0, 13, 10, 0, 9, 4, 0, 2, 7, 11, 16
+				</div>
+				<h3 class="heading" id="goto-with-re">一レ点・上レ点など</h3>
+				<p>
+					レ点の効果ではじめは飛ばし、すぐ下の文字を読んだ後で読み、そのまま二や下などに続きます。
+				</p>
+				<p>
+					種類は「一レ」、「上レ」、「甲レ」、「天レ」の四つです。
+				</p>
+				<div class="sentence-example">
+					4, 0, 3, 0
+				</div>
+				<div class="sentence-example">
+					10, 0, 9, 4, 0, 2, 8, 0
+				</div>
+				<div class="sentence-example">
+					15, 0, 14, 0, 13, 10, 0, 9, 4, 0, 2, 7, 12, 0
+				</div>
+				<div class="sentence-example">
+					19, 0, 18, 15, 0, 14, 0, 13, 10, 0, 9, 4, 0, 2, 7, 11, 17, 0
+				</div>
+				<h3 class="heading" id="idiom">熟語</h3>
+				<p>
+					一二点、上下点、甲乙点、天地人点で戻るべき場所が熟語である場合、その熟語にぞくする文字は戻るまで読むことができず、熟語の一文字目を読んだ時点で帰り店の高両区よりも優先して残りを読みます。
+				</p>
+				<p>
+					熟語はしばしばダッシュのようなもので文字をつなげて表すので、このサイトもそれに準じています。
+				</p>
+				<div class="annotation">何も目印がない場合もあります</div>
+				<p>
+					文章では説明しにくいので、例文をご確認ください。
+				</p>
+				<div class="sentence-example">
+					4, 20, 0, 2
+				</div>
+				<div class="sentence-example">
+					1, 10, 20, 4, 20, 0, 2, 9, 20, 7
+				</div>
+			</div>
+		</div>
+		<a href="./learn/index.html#top" class="button">先頭へ戻る</a>
+	</body>
+</html>

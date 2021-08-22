@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<script type="text/javascript">const ROOT = "/return-mark";document.write(`<base href="${location.href.slice(0, location.href.indexOf(ROOT) + ROOT.length)}/">`);</script>
+		<meta charset="utf-8">
+		<title>説明 | リターンマーク - Retern mark</title>
+		<meta name="description" content="漢文の返り点に特化した練習サイト">
+		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="stylesheet" id="common-style">
+		<link rel="stylesheet" id="reading-style">
+		<script src="./src/js/common.js"></script>
+		<script src="./src/js/info.js"></script>
+	</head>
+	<body onLoad="startUp();makeToc();loadHeader();emphasize()">
+		<div id="top"></div>
+		<header class="auto-load-header"></header>
+		<div id="toc"></div>
+		<div class="indent">
+			<h2 class="heading" id="how-to-play">遊び方</h2>
+			<p>
+				<a href="./index.html">ホームページ</a>でお好みの設定を選び、<nobr>「始める」</nobr>ボタンをクリックすると始まります。
+			</p>
+			<p>
+				正しい順番で正方形をクリックしていきましょう。順番は、一般的な<a href="./learn/index.html">返り点の読み方</a>どおりです。
+			</p>
+			<p>
+				文の最後まで読み終えたら、<nobr>次（の問題）</nobr>ボタンをクリックしましょう。次の問題に移ります。
+			</p>
+			<p>
+				二問目以降も同様の手順で繰り返していき、既定の問題数を終えると結果発表画面に移ります。
+			</p>
+			<div class="indent">
+			<h2 class="heading" id="screen-view">画面の見方</h2>
+				<p>
+					見出しをクリックすると、対応する箇所が強調表示されます。
+				</p>
+				<div class="indent">
+				<h3 class="heading" id="question-screen">出題画面</h3>
+					<iframe src="./practice/example.html" frameborder="0" id="question-frame"></iframe>
+					<h4 class="heading trigger" id="question-number-heading" onClick="jump2id('question-frame', 'question-number')">問題数</h4>
+					<p>
+						何問目の問題かを示します。
+					</p>
+					<h4 class="heading trigger" id="question-heading" onClick="jump2id('question-frame', 'outer')">問題</h4>
+					<p>
+						無作為に生成される文です。<span class="weak">ほんまにそんな文があるか知らんけど。</span>
+					</p>
+					<p>
+							難易度を上げても低確率で簡単な問題が出ます。
+					</p>
+					<h4 class="heading trigger" id="all-del-heading" onClick="jump2id('question-frame', 'del')">「全て削除」ボタン</h4>
+					<p>
+						現在の問題の解答を白紙に戻します。<span class="weak">ちょっと黄ばんでるケド。</span>
+					</p>
+					<p>
+						微妙に失点があるのでスコアアタック時には注意。
+					</p>
+					<h4 class="heading trigger" id="undo-heading" onClick="jump2id('question-frame', 'undo')">「一つ戻る」ボタン</h4>
+					<p>
+						最後の文字（一番数字の大きいもの）を取り消します。誤クリック時にどうぞ。
+					</p>
+					<p>
+						これも微妙に失点があるのでスコアアタック時には注意。
+					</p>
+					<h4 class="heading trigger" id="next-heading" onClick="jump2id('question-frame', 'next')">「次の問題」ボタン</h4>
+					<p>
+						正解だろうと不正解だろうと、たとえ埋まり切っていなくても、次の問題へ行きます。
+					</p>
+					<p>
+						<span class="play-sound" onClick="playSE('correctAnswer')">正解時</span>と<span class="play-sound" onClick="playSE('incorrectAnswer')">不正解時</span>で異なる効果音が流れます。<span class="weak">テキトーに作ったから全然雰囲気に合ってないけど気にしたら負け。</span>
+					</p>
+					<h3 class="heading" id="result-screen">結果発表画面</h3>
+					<iframe src="./practice/result-example.html" frameborder="0" id="result-frame"></iframe>
+					<h4 class="heading trigger" id="level-heading" onClick="jump2id('result-frame', 'level-label')">難易度</h4>
+					<p>
+						選択した難易度を確認できます。
+					</p>
+					<h4 class="heading trigger" id="count-heading" onClick="jump2id('result-frame', 'count-label')">問題数</h4>
+					<p>
+						何問出題する設定にしたかです。<span class="weak">コレ説明いらないような...</span>
+					</p>
+					<h4 class="heading trigger" id="correct-heading" onClick="jump2id('result-frame', 'correct-label')">正解数</h4>
+					<p>
+						何問正解したかしたかです。<span class="weak">コレ説明もいらないような...</span>
+					</p>
+					<h4 class="heading trigger" id="rate-heading" onClick="jump2id('result-frame', 'rate-label')">正解率</h4>
+					<p>
+						何割正解したかです。<span class="weak">十分＝一割</span>
+					</p>
+					<h4 class="heading trigger" id="time-heading" onClick="jump2id('result-frame', 'time-label')">経過時間</h4>
+					<p>
+						問題を解くのにかかった時間です。
+					</p>
+					<p>
+						得点に影響するので、早さも大事。<span class="weak">でも、凡ミスには気を付けるべし。（経験者は語る）間違えたら意味がないぞ！</span>
+					</p>
+					<h4 class="heading trigger" id="score-heading" onClick="jump2id('result-frame', 'score-label')">得点</h4>
+					<p>
+						問題を解く際の行動やかかった時間、問題の難しさなどから算出される値。<span class="weak">わりとガバい仕組みなので、参考程度に。</span>
+					</p>
+					<h4 class="heading trigger" id="retry-heading" onClick="jump2id('result-frame', 'retry-button')">「もう一度挑戦」ボタン</h4>
+					<p>
+						同じ設定でもう一度挑戦。さらに高得点を目指して。<span class="weak strike">おかわりもいいぞ！</span>
+					</p>
+					<h4 class="heading trigger" id="errate-heading" onClick="jump2id('result-frame', 'errata')">振り返り</h4>
+					<p>
+						出題された問題を確認できる。
+					</p>
+					<p>
+						間違えた問題は見出しが強調され、朱色で正しい答えが表示される。
+					</p>
+				</div>
+			</div>
+		</div>
+		<a href="./info/index.html#top" class="button">先頭へ戻る</a>
+	</body>
+</html>
