@@ -98,10 +98,8 @@ function loadHeader() {
 		xhr.onreadystatechange = function () {
 			if(xhr.readyState === 4 && xhr.status === 200) {
 				let responseText = xhr.responseText;
-				console.log(responseText);
 				for (let header of document.getElementsByClassName('auto-load-header')) {
-					header.innerHTML = xhr.responseText;
-					console.log(header);
+					header.innerHTML = responseText;
 				}
 			}
 		};
