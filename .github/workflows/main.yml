@@ -7,7 +7,6 @@ jobs:
     name: FrontDeploy
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
     - name: Checkout Repo
       uses: actions/checkout@master
     - name: setup Node
