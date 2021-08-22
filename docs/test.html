@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="height=device-height, initial-scale=1.0">
+		<title>リターンマーク - Reten mark</title>
+		<meta name="description" content="漢文の返り点に特化した練習サイト">
+		<meta name="keywords" content="漢文,返り点,練習">
+		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="stylesheet" id="common-style">
+		<link rel="stylesheet" id="index-style">
+		<script src="./src/js/common.js"></script>
+		<script src="./src/js/index.js"></script>
+	</head>
+	<body onload="startUp();loadHeader()">
+		<header class="auto-load-header">
+			<div class="header-menu">
+				<a href="./index.html">出題</a>
+				<a href="./info/index.html">説明</a>
+				<a href="./learn/index.html">学習</a>
+			</div>
+		</header>
+		<div id="note">
+			このページ（リポジトリ）は開発中の為、重大な不具合がある可能性がございます。
+		</div>
+		<div id="header">
+			<h2>Reten mark</h2>
+			<h1><nobr>リターン<wbr>マーク</nobr></h1>
+		</div>
+		<div id="main">
+			<div id="config">
+				<h2>～難易度～</h2>
+				<ul>
+					<li>
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="very-easy" id="very-easy"><label for="very-easy">いと易し</label></p>
+						<p class="redio-sub">レ点だけの&#8203;息抜き用</p>
+					</li>
+					<li>
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="easy" id="easy"><label for="easy">易し</label></p>
+						<p class="redio-sub">一二・レ点の&#8203;練習用</p>
+					</li>
+					<li>
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="normal" id="normal" checked><label for="normal">並</label></p>
+						<p class="redio-sub">上下点までの&#8203;習得用</p>
+					</li>
+					<li>
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="hard" id="hard"><label for="hard">難し</label></p>
+						<p class="redio-sub">甲乙点までの&#8203;勉強用</p>
+					</li>
+					<li>
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="very-hard" id="very-hard"><label for="very-hard">いと難し</label></p>
+						<p class="redio-sub">何でもありの&#8203;挑戦用</p>
+					</li>
+				</ul>
+				<hr/>
+				<details id="details">
+					<summary>詳細設定</summary>
+					<ul>
+						<li>
+							<p class="redio-main"><input class="checkbox" type="checkbox" name="idiom" value="idiom" id="idiom"><label for="idiom">熟語</label></p>
+							<p class="redio-sub"><nobr>「―」</nobr>でつながれた熟語を&#8203;出題するか否か</p>
+						</li>
+						<li>
+							<p class="redio-main"><input class="checkbox" type="checkbox" name="ligature" value="ligature" id="ligature"><label for="ligature">一レ点</label></p>
+							<p class="redio-sub"><nobr>「㆒㆑」</nobr>や<nobr>「㆖㆑」</nobr>などを&#8203;出題するか否か</p>
+						</li>
+					</ul>
+				</details>
+			</div>
+			<a class="button bigger block-center" onClick="startPractice()">始める</a>
+		</div>
+	</body>
+</html>
