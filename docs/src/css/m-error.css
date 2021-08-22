@@ -14,7 +14,6 @@ h1, h2 {
 #error-explain {
 	display: inline-block;
 	margin: 0 auto;
-	padding-left: 2em;
 }
 
 #error-sign {
