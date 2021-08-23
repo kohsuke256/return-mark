@@ -102,6 +102,8 @@ body > div {
 	align-items: center;
 	flex-direction: row-reverse;
 	margin: auto 0;
+	height: 60vh;
+	width: 17.5rem;
 }
 
 .counter-main {

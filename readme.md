@@ -1,17 +1,10 @@
-# <big><font color="#ff0000">重要</font>
-このリポジトリは未完成です。  
-いかなる問題が発生しても、責任を負いません。  
-斜体部分は完成後、取り消し線の文に置き換えられる予定です。</big>
-
----
-
 ### 漢文練習サイト
 ## - Reten mark -
 # リターンマーク
 
 ## リターンマークとは
-[第2回 学力向上アプリコンテスト](https://www.gakuryokuup.com/)のために制作~~された~~*中の*、漢文の返り点に特化した練習用サイトです。  
-[Github Pages](https://kohsuke256.github.io/return-mark/)，[Firebase Hosting](https://return-mark.web.app/) を利用し公開されて~~おり、手軽に利用することができ~~*ますが、未完成です*。
+[第2回 学力向上アプリコンテスト](https://www.gakuryokuup.com/)のために制作された、漢文の返り点に特化した練習用サイトです。  
+[Github Pages](https://kohsuke256.github.io/return-mark/)，[Firebase Hosting](https://return-mark.web.app/) を利用し公開されており、手軽に利用することができます。
 
 ---
 
@@ -21,15 +14,8 @@
 
 ---
 
-## 推奨環境
-
-### 動作確認~~済み~~*予定*環境
+## 動作確認環境
 項目|環境
 :--|:--
 OS|Windows 10 最新版<br>android 11 最新版
 ブラウザ|Google chrome 最新版
-### 推奨スペック *\(予想 \)*
-項目|要件
-:--|:--
-メモリ|2 GB 以上
-画面解像度|HD 以上

@@ -8,12 +8,13 @@
 		<link rel="shortcut icon" href="./favicon.ico">
 		<link rel="stylesheet" id="common-style">
 		<link rel="stylesheet" id="index-style">
+		<link rel="stylesheet" id="reading-style">
 		<script src="./src/js/common.js"></script>
 		<script src="./src/js/index.js"></script>
 	</head>
 	<body onload="startUp();loadHeader();configCount()">
 		<header class="auto-load-header"></header>
-		<div id="note" style="display: none;"> <!-- 必要ならboxに変える -->
+		<div id="note" style="display: none;">
 			このページ（リポジトリ）はメンテナンス中の為、重大な不具合がある可能性がございます。
 		</div>
 		<div id="header">
@@ -72,6 +73,35 @@
 				</details>
 			</div>
 			<a class="button bigger block-center" onClick="startPractice()">始める</a>
+		</div>
+		<hr/>
+		<div id="about-this">
+			<div class="indent">
+				<h2>リターンマークとは</h2>
+				<p>
+					<a href="https://www.gakuryokuup.com/">第２回 学力向上アプリコンテスト</a>のために制作された、漢文の返り点に特化した練習用サイトです。
+				</p>
+				<p>
+					<a href="https://kohsuke256.github.io/return-mark/">Github Pages</a>、<a href="https://return-mark.web.app/">Firebase Hosting</a> を利用し公開されており、手軽に利用することができます。
+				</p>
+				<h2>注意事項</h2>
+				<ul>
+					<li>不具合等により、このサイトが出題する問題に、誤りがある可能性がございます。ご了承ください。</li>
+					<li>お使いの端末・ブラウザによっては正常に動作しないことがあります。詳しくは動作確認環境をご覧ください。</li>
+				</ul>
+				<h2>動作確認環境</h2>
+				<div class="indent">
+					<h3>OS</h3>
+					<p>
+						Windows 10 最新版<br/>
+						android 11 最新版
+					</p>
+					<h3>ブラウザ</h3>
+					<p>
+						Google chrome 最新版
+					</p>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

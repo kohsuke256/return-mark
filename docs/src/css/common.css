@@ -57,24 +57,25 @@ header::before {
 	box-shadow: 0 0 0.1em #000000;
 }
 
+header:hover .header-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 .header-menu {
 	position: absolute;
+	display: none;
+	right: 3.5rem;
 	height: calc(100vh - 4.75rem);
 	background: #ffffcc;
 	box-sizing: border-box;
 	border: #669933 0.5em solid;
 	border-right: none;
-	display: none;
 	margin: 1.5rem 0;
   animation: fadeIn 0.5s ease;
 	box-shadow: 0 0 0.1em #000000;
 	z-index: 3;
-}
-
-header:hover .header-menu {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 }
 
 .header-menu a {
