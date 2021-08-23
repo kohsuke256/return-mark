@@ -39,7 +39,7 @@ class Sentence {
 		this.answer = Sentence.solve(this.marks);
 	}
 	getScore() {
-		return this.marks.map((mark) => POINTS[mark]).reduce((a, c) => a + c);
+		return this.marks.map((mark) => POINTS[mark] * 100).reduce((a, c) => a + c) + this.marks.length;
 	}
 	getErrata() {
 		let chars = [];

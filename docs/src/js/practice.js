@@ -136,7 +136,6 @@ function next() {
 		correctCount++;
 		playSE('correctAnswer');
 	} else {
-		score -= Math.ceil((level * 2 + 1) * 5 / sent.getScore());
 		playSE('incorrectAnswer');
 	}
 	if (questionNumber >= questionCount) {
@@ -152,10 +151,8 @@ function del() {
 	sent.del(selectedChar);
 	if (selectedChar == -1) {
 		count = 0;
-		score -= 5;
 	} else {
 		count--;
-		score--;
 	}
 	selectChar(-1);
 	update();
@@ -166,7 +163,6 @@ function undo() {
 		playSE('undo');
 		sent.undo(count);
 		count--;
-		score--;
 		selectChar(-1);
 		update();
 	}
@@ -183,7 +179,7 @@ function showResult() {
 	document.getElementById('correct').innerHTML = `${japaneseNumber(correctCount)}問`;
 	document.getElementById('rate').innerHTML = `${japaneseNumber(Math.floor(correctRate * 10))}割${Math.floor(correctRate * 100 % 10) == 0 ? '' : `${japaneseNumber(Math.floor(correctRate * 100 % 10))}分`}`;
 	document.getElementById('time').innerHTML = second < 60 ? `${japaneseNumber(second)}秒` : `${japaneseNumber(Math.floor(second / 60))}分${japaneseNumber(second % 60)}秒`;
-	let result_score = Math.floor(score * 10 / second + questionCount * level * 2);
+	let result_score = Math.floor(score / (second + 1) + correctCount * level * 10);
 	document.getElementById('score').innerHTML = `${japaneseNumber(result_score)}点`;
 	document.getElementById('errata').innerHTML = sentHistory.map((s, i) => `<details class="${s.isCorrect() ? 'correct' : 'incorrect'}"><summary>${japaneseNumber(i + 1)}問目</summary><div class="errata-sent">${s.getErrata()}</div></details>`).join('');
 	outer.classList.remove('not-first');
