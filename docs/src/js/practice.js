@@ -5,6 +5,9 @@ let startTime;
 let questionNumber;
 let score;
 let selectedChar;
+let canScrollSign;
+
+const TIME_OUT = 100
 
 const params = function (paramText){
   const regex = /[?&]([^=#]+)=([^&#]*)/g;
@@ -52,9 +55,9 @@ function parseBool(arg) {
 
 function update() {
 	if (sent.isFirst()) {
-		outer.classList.remove('not-first');
+		outer.classList.add('first');
 	} else {
-		outer.classList.add('not-first');
+		outer.classList.remove('first');
 	}
 	outer.innerHTML = sent.toHTML();
 	selectChar(selectedChar); // クラスの付け直し
@@ -64,6 +67,16 @@ function question() {
 	count = 0;
 	sent = Sentence.makeSentence(level, idiom, ligature, volume=level * 10 + 10);
 	questionNumberElement.innerHTML = `${japaneseNumber(questionNumber)}問目`;
+	outer = document.getElementById('outer');
+	setTimeout(function () {
+		if (outer.scrollHeight > outer.offsetHeight) {
+			canScrollSign.classList.add('show');
+			console.log('show');
+		} else {
+			canScrollSign.classList.remove('show');
+			console.log('hidden');
+		}
+	}, TIME_OUT);
 	selectChar(-1);
 	update();
 }
@@ -89,6 +102,8 @@ function reset() {
 	outer = document.getElementById('outer');
 	sentHistory = [];
 	startTime = performance.now();
+	outer.classList.add('question');
+	canScrollSign = document.getElementById('can-scroll');
 	question();
 }
 
@@ -169,6 +184,7 @@ function undo() {
 }
 
 function showResult() {
+	outer.classList.remove('question');
 	document.getElementById('ui').style.display = 'none';
 	let second = Math.floor((performance.now() - startTime) / 1000);
 	let result = document.getElementById('result');

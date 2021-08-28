@@ -128,7 +128,7 @@ class Sentence {
 		for (let i = 0; i < this.length; i++) {
 			chars.push(this.char2HTML(i));
 		}
-		let html = this.first ? `<div class="first">${chars.join('')}</div>` : chars.join('');
+		let html = chars.join('');
 		this.first = false;
 		return html;
 	}

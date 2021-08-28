@@ -48,6 +48,26 @@ body {
 	right: 0;
 }
 
+#can-scroll::before {
+	content: "続く Ｖ";
+}
+
+#can-scroll {
+	font-size: 1.5rem;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 0.2rem;
+	background: #339933;
+	color: #ffffff;
+	display: none;
+	font-family: sans-serif;
+}
+
+#can-scroll.show {
+	display: inline;
+}
+
 .mini-button {
 	writing-mode: initial;
 	font-size: 2rem;
