@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- コナミコマンドを入力してみると... -->
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
@@ -12,7 +13,7 @@
 		<script src="./src/js/common.js"></script>
 		<script src="./src/js/index.js"></script>
 	</head>
-	<body onload="startUp();loadHeader();configCount()">
+	<body onload="startUp();loadHeader();configCount();setEvent();">
 		<header class="auto-load-header"></header>
 		<div id="note" style="display: none;">
 			このページ（リポジトリ）はメンテナンス中の為、重大な不具合がある可能性がございます。
@@ -44,6 +45,10 @@
 					<li>
 						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="very-hard" id="very-hard"><label for="very-hard">いと難し</label></p>
 						<p class="redio-sub">何でもありの&#8203;挑戦用</p>
+					</li>
+					<li id="ogre-li" style="display: none;">
+						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="ogre" id="ogre"><label for="ogre">鬼</label></p>
+						<p class="redio-sub">とっても長い&#8203;暇人用</p>
 					</li>
 				</ul>
 				<hr/>

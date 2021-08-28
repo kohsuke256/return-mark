@@ -71,24 +71,10 @@ function question() {
 	setTimeout(function () {
 		if (outer.scrollHeight > outer.offsetHeight) {
 			canScrollSign.classList.add('show');
-			console.log('show');
 		} else {
 			canScrollSign.classList.remove('show');
-			console.log('hidden');
 		}
 	}, TIME_OUT);
-	selectChar(-1);
-	update();
-}
-
-function longQuestion() { // デバッグ用
-	count = 0;
-	let marks = [];
-	for (let i = 0; i < 500; i++) {
-		marks.push(randInt(0, 2));
-	}
-	sent = new Sentence(marks);
-	// questionNumberElement.innerHTML = `${japaneseNumber(questionNumber)}問目`;
 	selectChar(-1);
 	update();
 }
@@ -190,7 +176,7 @@ function showResult() {
 	let result = document.getElementById('result');
 	let correctRate = correctCount / questionCount;
 	outer.innerHTML = `<div class="result-content">${result.innerHTML}</div>`;
-	document.getElementById('level').innerHTML = ["いと易し", "易し", "並", "難し", "いと難し"][level];
+	document.getElementById('level').innerHTML = ["いと易し", "易し", "並", "難し", "いと難し", "鬼"][level];
 	document.getElementById('count').innerHTML = `${japaneseNumber(questionCount)}問`;
 	document.getElementById('correct').innerHTML = `${japaneseNumber(correctCount)}問`;
 	document.getElementById('rate').innerHTML = `${japaneseNumber(Math.floor(correctRate * 10))}割${Math.floor(correctRate * 100 % 10) == 0 ? '' : `${japaneseNumber(Math.floor(correctRate * 100 % 10))}分`}`;

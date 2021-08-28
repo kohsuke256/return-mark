@@ -209,6 +209,13 @@ class Sentence {
 					marks = marks.concat(Sentence.makeClause(l, idiom, ligature, perOne));
 				}
 				break;
+			} case 5: { // 鬼 (天地人点レベルを複数連結)
+				let x = randFloat(-2.5, 2.5);
+				let r = Math.floor((x ** 3 + x + 25) / 5);
+				for (let i = 0; i < r; i++) {
+					marks = marks.concat(Sentence.makePhrase(4, idiom, ligature, -1, volume));
+				}
+				break;
 			}
 		}
 		return marks;
