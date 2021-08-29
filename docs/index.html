@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- コナミコマンドを入力してみると... -->
+<!-- 問題数を666問にして難易度をタップしてみると... -->
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
@@ -24,7 +25,7 @@
 		</div>
 		<div id="main">
 			<div id="config">
-				<h2>～難易度～</h2>
+				<h2 onClick="if (questionCount == 666) {showOgre()}">～難易度～</h2>
 				<ul>
 					<li>
 						<p class="redio-main"><input class="redio" onChange="redioChanged()" type="radio" name="level" value="very-easy" id="very-easy"><label for="very-easy">いと易し</label></p>
