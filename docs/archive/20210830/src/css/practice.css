@@ -1,0 +1,165 @@
+html {
+	width: 100%;
+}
+
+body {
+	width: 100%;
+  display: table;
+}
+
+#master {
+  display: table-cell;
+	vertical-align: middle;
+}
+
+#spacer {
+	float: left;
+	width: 4rem;
+	height: 100%;
+}
+
+.first {
+	animation: fadeIn 0.25s ease;
+}
+
+#ui {
+	display: flex;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#buttons {
+	display: flex;
+	align-items: flex-end;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+#question-number {
+	font-size: 2rem;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+#can-scroll {
+	display: none;
+}
+
+.mini-button {
+	writing-mode: initial;
+	font-size: 2rem;
+	margin: 0.25em;
+	padding: 0 0.5em;
+	height: 2em;
+	line-height: 2em;
+	border-radius: 1em;
+	text-align: center;
+	transition: 0.2s ease;
+}
+
+.mini-button:hover {
+	border-radius: 0;
+}
+
+#del::before {
+	content: "消";
+}
+
+#del:hover::before {
+	content: "全て消す";
+}
+
+#del.selected:hover::before {
+	content: "一つ消す";
+}
+
+#del {
+	color: #ff3333;
+	background-color: #ff9999;
+}
+
+#del:hover {
+	padding: 0;
+	width: 5em;
+}
+
+#undo::before {
+	content: "戻";
+}
+
+#undo:hover::before {
+	content: "一つ戻る";
+}
+
+#undo {
+	color: #006699;
+	background-color: #33ccff;
+}
+
+#undo:hover {
+	padding: 0;
+	width: 5em;
+}
+
+#next::before {
+	content: "次";
+}
+
+#next:hover::before {
+	content: "次の問題";
+}
+
+#next {
+	color: #339933;
+	background-color: #99ff99;
+}
+
+#next:hover {
+	padding: 0;
+	width: 5em;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+		transform: translateY(-0.5rem);
+  }
+  100% {
+		opacity: 1;
+		transform: none;
+  }
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 2.5em;
+	margin: 1em 0 0 0;
+}
+
+.result-data {
+	font-size: 2em;
+	margin: 3em 0 0 1em;
+}
+
+#errata {
+	margin: 1rem;
+}
+
+#errata summary {
+	font-size: 2.5em;
+}
+
+#errata details.incorrect summary {
+	color: #ff3333;
+}
+
+hr {
+	margin: 0 1em;
+}

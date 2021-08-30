@@ -1,0 +1,21 @@
+body {
+	font-size: 2rem;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+.button {
+	display: block;
+	text-align: center;
+}
+
+#error-explain {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+#error-sign {
+	text-align: right;
+}

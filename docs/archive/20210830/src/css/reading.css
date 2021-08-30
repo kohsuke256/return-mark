@@ -1,0 +1,82 @@
+body {
+	font-size: 1.5rem;
+}
+
+.indent {
+	margin-top: 1rem;
+}
+
+iframe {
+	float: right;
+	border: solid calc(0.025rem + 1px) #999999;
+	font-size: 1rem;
+	height: 45vh;
+	width: 45vw;
+	margin: 0.2rem;
+	padding: 0.2rem;
+}
+
+h1, h2, h3, h4 {
+	/* display: inline-block; */
+	margin: 0 0.2em 0 0.05em;
+}
+
+p {
+	/* text-indent: 1em; */
+	margin: 1em 0.2em 0 0.2em;
+}
+
+/* .emphasize::before {
+	content: "∵";
+}
+
+.emphasize::after {
+	content: "∴";
+} */
+
+.emphasize-frame {
+	border: double (0.05rem + 1px) #ff6633	;
+}
+
+.trigger {
+	text-indent: -0.25em;
+	cursor: pointer;
+}
+
+.trigger::before, .trigger::after {
+	content: "";
+	display: inline-block;
+	height: 0.5em;
+	width: 0.1em;
+	background-color: #000000;
+	transition: 0.2s ease;
+}
+
+.trigger::before, .trigger:hover::after {
+	margin: 0.5em 0 0.1em 0;
+}
+
+.trigger:hover:before, .trigger::after {
+	margin: 0.1em 0 0.5em 0;
+}
+
+.memo::before {
+	content: "ポイント";
+	display: block;
+	transform: translateY(-1em);
+}
+
+.memo {
+	border: calc(0.05rem + 1px) #00cc33 dotted;
+	padding: 1.25em 0.25em 0.25em 0.25em;
+	margin-top: 1em;
+}
+
+.annotation::before {
+	content: "※";
+}
+
+.annotation {
+	font-size: 0.8em;
+	padding-top: 1em;
+}

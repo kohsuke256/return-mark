@@ -1,0 +1,131 @@
+body > div {
+	box-sizing: border-box;
+}
+
+#note::before {
+	content: "⚠ ";
+}
+
+#note {
+	margin: 0.25em 1rem 0.25em 1.25rem;
+  position: relative;
+	background-color: #ffffcc;
+	color: #ff3300;
+	font-size: 2.5em;
+	padding: 0.2em;
+}
+
+#note::after {
+	content: '';
+	position: absolute;
+	top: -0.25em;
+	bottom: -0.25em;
+	left: -0.25em;
+	right: -0.25em;
+	background: repeating-linear-gradient(45deg, #000000, #000000 0.3em, #ffff00 0.3em, #ffff00 0.6em);
+	background-color: #000000;
+	z-index: -1;
+}
+
+#main {
+	font-size: 2rem;
+	margin: 0 1rem;
+	height: 100%;
+}
+
+#header {
+	color: #333333;
+	margin: 0 1rem;
+	height: 100%;
+	border: calc(0.05rem + 1px) solid #999999;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 4rem;
+	text-align: center;
+}
+
+#header h2 {
+	display: inline-block;
+	color: #666666;
+	font-size: 2rem;
+	height: 100%;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: normal;
+	margin: 0;
+	margin-right: 0.5rem;
+	letter-spacing: 0.1em;
+}
+
+#config {
+	border: calc(0.05rem + 1px) solid #999999;
+	margin: 0 1rem 0 0.5rem;
+	padding: 0.5rem;
+}
+
+#config h2 {
+	font-size: 2.5rem;
+	margin: 0 0.5rem 0 0;
+}
+
+#config ul {
+	margin: 1rem 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+#config ul li {
+	margin: 0 0.5rem 0 0;
+}
+
+#config p {
+	margin: 0;
+}
+
+#config p.redio-sub, #config p.check-sub, #config p.counter-sub {
+	margin-top: 6rem;
+	font-size: 1.5rem;
+	color: #000000;
+}
+
+.counter-label {
+	padding-top: 2em;
+}
+
+#count-outer {
+	user-select: none;
+  writing-mode: initial;
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	margin: auto 0;
+	height: 60vh;
+	width: 17.5rem;
+}
+
+.counter-main {
+  writing-mode: vertical-rl;
+}
+
+#count-outer div {
+  text-align: center;
+}
+
+#decrement10::before {
+	content: "＜＜";
+}
+
+#decrement::before {
+	content: "＜";
+}
+
+#increment::before {
+	content: "＞";
+}
+
+#increment10::before {
+	content: "＞＞";
+}
