@@ -265,20 +265,21 @@ details[open] summary::before {
 
 .toc-1, .toc-2, .toc-3, .toc-4 {
 	display: block;
+	text-indent: -0.75em;
 }
 
 .toc-1 {
-	text-indent: 1em;
+	margin-left: 1em;
 }
 
 .toc-2 {
-	text-indent: 2em;
+	margin-left: 2em;
 }
 
 .toc-3 {
-	text-indent: 3em;
+	margin-left: 3em;
 }
 
 .toc-4 {
-	text-indent: 4em;
+	margin-left: 4em;
 }
