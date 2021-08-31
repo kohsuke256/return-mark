@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head>
-	<script type="text/javascript">function f(x){return x.index + x[0].length};function g(x){let r = location.href.slice(x, location.href.length).match(new RegExp("archive/\\d{8,}/"));console.log(r);return r == null ? x : x + r.index + r[0].length};document.write(`<base href="${location.href.slice(0, g(f(location.href.match(new RegExp("/return-mark/docs/|/return-mark/|.app/|.com/")))))}">`);</script>
+	<script type="text/javascript">function f(x){return x.index + x[0].length};function g(x){let r = location.href.slice(x, location.href.length).match(new RegExp("archive/\\d{8,}/"));return r == null ? x : x + r.index + r[0].length};document.write(`<base href="${location.href.slice(0, g(f(location.href.match(new RegExp("/return-mark/docs/|/return-mark/|.app/|.com/")))))}">`);</script>
 	<meta charset="utf-8">
 	<title>問題 | リターンマーク - Retern mark</title>
 	<meta name="description" content="漢文の返り点に特化した練習サイト">
