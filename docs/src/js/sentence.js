@@ -133,7 +133,7 @@ class Sentence {
 		return html;
 	}
 	static makeSentence(level, idiom, ligature, need=-1, volume=10) { // 問題を生成
-		return new Sentence(Sentence.checkLastChar(Sentence.makePhrase(level, idiom, ligature, need, volume)));
+		return new Sentence(Sentence.checkReWithInIdiom(Sentence.checkLastChar(Sentence.makePhrase(level, idiom, ligature, need, volume))));
 	}
 	static makePhrase(level, idiom, ligature, need, volume) { // 問題作成の肝 再起処理の部分
 		if (volume < 0) {
@@ -245,13 +245,19 @@ class Sentence {
 				let perOne = Math.ceil(volume / span); // 一つ当たりの volume
 				let probability = 1 / -perOne + 1; // idiom と ligature の確率
 				marks = [];
+				let isIdiom = [];
+				for (let i = 0; i < span; i++) {
+					isIdiom.push(idiom && randBool(probability));
+				}
+				isIdiom.push(false); // オーバーフロー防止
 				for (let i = 0; i < span; i++) {
 					marks.push(3 + span - i);
-					let isIdiom = idiom && randBool(probability);
-					if (isIdiom) {
+					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(0, idiom, ligature, -1, isIdiom ? perOne - 1 : perOne)));
+					if (!isIdiom[i + 1] || randBool()) {
+						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(0, idiom, ligature, -1, isIdiom[i] ? perOne - 1 : perOne)));
+					}
 				}
 				if (ligature && randBool(probability)) {
 					marks.push(3); // 一レ
@@ -265,13 +271,19 @@ class Sentence {
 				let probability = 1 / -perOne + 1; // idiom と ligature の確率
 				let need = randInt(0, span);
 				marks = [];
+				let isIdiom = [];
+				for (let i = 0; i < span; i++) {
+					isIdiom.push(idiom && randBool(probability));
+				}
+				isIdiom.push(false); // オーバーフロー防止
 				for (let i = 0; i < span; i++) {
 					marks.push(10 - i);
-					let isIdiom = idiom && randBool(probability);
-					if (isIdiom) {
+					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(1, idiom, ligature, i == need ? 1 : -1, isIdiom ? perOne - 1 : perOne)));
+					if (!isIdiom[i + 1] || randBool()) {
+						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(1, idiom, ligature, i == need ? 1 : -1, isIdiom[i] ? perOne - 1 : perOne)));
+					}
 				}
 				if (ligature && randBool(probability)) {
 					marks.push(8); // 上レ
@@ -286,13 +298,19 @@ class Sentence {
 				let probability = 1 / -perOne + 1; // idiom と ligature の確率
 				let need = randInt(0, span);
 				marks = [];
+				let isIdiom = [];
+				for (let i = 0; i < span; i++) {
+					isIdiom.push(idiom && randBool(probability));
+				}
+				isIdiom.push(false); // オーバーフロー防止
 				for (let i = 0; i < span; i++) {
 					marks.push(12 + span - i);
-					let isIdiom = idiom && randBool(probability);
-					if (isIdiom) {
+					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(2, idiom, ligature, i == need ? (span == 3 ? 1.5 : 2) : -1, isIdiom ? perOne - 1 : perOne)));
+					if (!isIdiom[i + 1] || randBool()) {
+						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(2, idiom, ligature, i == need ? (span == 3 ? 1.5 : 2) : -1, isIdiom[i] ? perOne - 1 : perOne)));
+					}
 				}
 				if (ligature && randBool(probability)) {
 					marks.push(12); // 甲レ
@@ -306,13 +324,19 @@ class Sentence {
 				let probability = 1 / -perOne + 1; // idiom と ligature の確率
 				let need = randInt(0, span);
 				marks = [];
+				let isIdiom = [];
+				for (let i = 0; i < span; i++) {
+					isIdiom.push(idiom && randBool(probability));
+				}
+				isIdiom.push(false); // オーバーフロー防止
 				for (let i = 0; i < span; i++) {
 					marks.push(17 + span - i);
-					let isIdiom = idiom && randBool(probability);
-					if (isIdiom) {
+					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(3, idiom, ligature, i == need ? 3 : -1, isIdiom ? perOne - 1 : perOne)));
+					if (!isIdiom[i + 1] || randBool()) {
+						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(3, idiom, ligature, i == need ? 3 : -1, isIdiom[i] ? perOne - 1 : perOne)));
+					}
 				}
 				if (ligature && randBool(probability)) {
 					marks.push(17); // 一レ
@@ -329,6 +353,20 @@ class Sentence {
 			marks.push(0);
 		}
 		return marks;
+	}
+	static checkReWithInIdiom(marks) {
+		if (marks.length < 3) {
+			return marks;
+		} else {
+			let i = 2;
+			while (i < marks.length) {
+				if (marks[i] == 20 && WITH_RE.includes(marks[i - 2])) { // レ点と熟語が連続していたら
+					marks.splice(i - 1, 0, 0); // レ点と熟語の間に返り点なしの文字を挿入
+				}
+				i++;
+			}
+			return marks;
+		}
 	}
 	static solve(marks) {
 		let ans = Array(marks.length);
