@@ -281,7 +281,7 @@ class Sentence {
 					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					if (!isIdiom[i + 1] || randBool()) {
+					if (!isIdiom[i + 1] || randBool() || i == need) {
 						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(1, idiom, ligature, i == need ? 1 : -1, isIdiom[i] ? perOne - 1 : perOne)));
 					}
 				}
@@ -308,7 +308,7 @@ class Sentence {
 					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					if (!isIdiom[i + 1] || randBool()) {
+					if (!isIdiom[i + 1] || randBool() || i == need) {
 						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(2, idiom, ligature, i == need ? (span == 3 ? 1.5 : 2) : -1, isIdiom[i] ? perOne - 1 : perOne)));
 					}
 				}
@@ -334,7 +334,7 @@ class Sentence {
 					if (isIdiom[i]) {
 						marks.push(20); // ―
 					}
-					if (!isIdiom[i + 1] || randBool()) {
+					if (!isIdiom[i + 1] || randBool() || i == need) {
 						marks = marks.concat(Sentence.checkLastChar(Sentence.makePhrase(3, idiom, ligature, i == need ? 3 : -1, isIdiom[i] ? perOne - 1 : perOne)));
 					}
 				}
