@@ -48,24 +48,24 @@ header::before {
 	z-index: 4;
 	width: 3rem;
 	background: #669933;
-	margin: 1.5rem 0;
+	margin: 1.5rem 0 1.5rem 5rem;
 	text-align: center;
 	text-shadow: none;
 	color: #ffffff;
 	font-size: 2rem;
 	font-weight: bold;
-	box-shadow: 0 0 0.1em #000000;
+	box-shadow: 0 0 0.1em #000000, 3rem 1px 0 #ffffcc, 3rem -1px 0 #ffffcc;
 }
 
-header:hover .header-menu {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+header:hover .header-menu::after {
+	display: none;
 }
 
 .header-menu {
 	position: absolute;
-	display: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	right: 3.5rem;
 	height: calc(100vh - 4.75rem);
 	background: #ffffcc;
@@ -73,15 +73,33 @@ header:hover .header-menu {
 	border: #669933 0.5em solid;
 	border-right: none;
 	margin: 1.5rem 0;
-  animation: fadeIn 0.5s ease;
 	box-shadow: 0 0 0.1em #000000;
 	z-index: 3;
+	transition: 0.2s ease;
+}
+
+.header-menu::after {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: transparent solid 1.5rem;
+	border-bottom: transparent solid 1.5rem;
+	border-right: #000000 solid 1.5rem;
+	margin: auto 0.5rem;
+	transform: scaleY(0.75);
 }
 
 .header-menu a {
+	display: none;
 	color: #000000;
 	font-size: 2em;
 	text-indent: 1em;
+}
+
+header:hover .header-menu a {
+	display: initial;
+	animation: fadeIn 0.25s;
 }
 
 .header-menu a:hover {
